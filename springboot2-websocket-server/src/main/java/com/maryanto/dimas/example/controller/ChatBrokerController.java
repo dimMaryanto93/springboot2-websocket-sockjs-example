@@ -21,10 +21,11 @@ public class ChatBrokerController {
 
     @MessageMapping("/chat")
     public void chatToUser(@Payload ChatDto.Request dto) {
+        log.info("request message: {}", dto);
         ChatDto.Response response = ChatMapper.ChatResponseRequest.instance.convertToEntity(dto);
         response.setDateCreated(Timestamp.valueOf(LocalDateTime.now()));
 
-        log.info("message sending: {}", response);
+        log.info("sending message: {}", response);
         this.messageTemplate.convertAndSendToUser(response.getToId(), "/chat/send", response);
     }
 
