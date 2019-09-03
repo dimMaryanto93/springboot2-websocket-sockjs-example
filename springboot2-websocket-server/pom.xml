@@ -24,6 +24,7 @@
         <docker-registry.host.push>repository.dimas-maryanto.com:8087</docker-registry.host.push>
         <docker-registry.host.pull>repository.dimas-maryanto.com:8086</docker-registry.host.pull>
         <finalName>${project.artifactId}-${project.version}</finalName>
+        <org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
     </properties>
 
     <repositories>
@@ -101,6 +102,16 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.39.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${org.mapstruct.version}</version>
         </dependency>
     </dependencies>
 
