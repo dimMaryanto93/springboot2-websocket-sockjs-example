@@ -1,0 +1,26 @@
+server:
+  port: ${APPLICATION_PORT:8080}
+  servlet:
+    context-path: /@project.artifactId@
+  websocket:
+    sockjs:
+      url: ${WEBSOCKET_URL:ws://localhost:8000/springboot2-websocket-server/sockjs}
+      username: ${WEBSOCKET_USERNAME:test}
+      password: ${WEBSOCKET_PASSWORD:test}
+# spring configuration
+spring:
+  application:
+    name: @project.artifactId@
+    version: @project.version@
+    fullname: @project.name@
+  mvc:
+    dispatch-options-request: true
+logging:
+  level:
+    org.springframework: ERROR
+    com.tabeldata: DEBUG
+  file: ${LOG_LOCATION:${spring.application.name}.log}
+hcare:
+  ws:
+    stomp:
+      url: ${HCARE_WEBSOCKET_URL:ws://tabeldata.ip-dynamic.com:6061/hcare-chat/sockjs}
